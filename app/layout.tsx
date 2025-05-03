@@ -2,6 +2,8 @@ import type React from "react"
 import "./globals.css"
 import { Space_Grotesk, Manrope } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@vercel/analytics/react"
+import { Suspense } from "react"
 
 // Modern, karakteristik display font
 const spaceGrotesk = Space_Grotesk({
@@ -33,7 +35,10 @@ export default function RootLayout({
     <html lang="tr" suppressHydrationWarning>
       <body className={`${spaceGrotesk.variable} ${manrope.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
+          <Suspense>
+            {children}
+            <Analytics />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
