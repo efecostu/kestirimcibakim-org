@@ -4,6 +4,8 @@ import { Space_Grotesk, Manrope } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
 import { Suspense } from "react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 // Modern, karakteristik display font
 const spaceGrotesk = Space_Grotesk({
@@ -20,9 +22,9 @@ const manrope = Manrope({
 })
 
 export const metadata = {
-  title: "Kestirimci Bakım Platformu - Çok Yakında",
+  title: "Kestirimci Bakım Platformu",
   description:
-    "Yeni nesil kestirimci bakım çözümleri ile tanışın. Makine arızalarını önceden tahmin edin, bakım maliyetlerini düşürün.",
+    "Arızaları önceden tahmin edin, kesintisiz üretim sağlayın. Kestirimci bakım çözümleriyle işletmenizi geleceğe taşıyın.",
     generator: 'v0.dev'
 }
 
@@ -36,7 +38,9 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} ${manrope.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Suspense>
-            {children}
+            <Header />
+            <main className="pt-16">{children}</main>
+            <Footer />
             <Analytics />
           </Suspense>
         </ThemeProvider>

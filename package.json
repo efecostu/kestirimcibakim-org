@@ -63,6 +63,9 @@
     "svelte": "latest",
     "vue": "latest",
     "vue-router": "latest",
+    "fs": "latest",
+    "path": "latest",
+    "nodemailer": "latest",
     "@vercel/analytics": "latest"
   },
   "devDependencies": {
